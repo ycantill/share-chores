@@ -19,6 +19,7 @@ export default {
     /** Enable using HTML as rollup entrypoint */
     html({
       minify: true,
+      publicPath: 'share-chores'
     }),
     /** Resolve bare module imports */
     nodeResolve(),
