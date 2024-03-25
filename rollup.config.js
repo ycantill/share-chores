@@ -4,6 +4,8 @@ import html from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
 
+const GITHUB_REPO = process.env.GITHUB_REPO.replace(/.*\//i, '');
+
 export default {
   input: 'index.html',
   output: {
@@ -19,7 +21,7 @@ export default {
     /** Enable using HTML as rollup entrypoint */
     html({
       minify: true,
-      publicPath: 'share-chores'
+      publicPath: GITHUB_REPO || ''
     }),
     /** Resolve bare module imports */
     nodeResolve(),
